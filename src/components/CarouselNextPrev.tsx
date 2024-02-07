@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { View } from "vcc-ui";
+import { Spacer, View } from "vcc-ui";
 
 type Props = {
   next: () => void;
@@ -36,6 +36,7 @@ const CarouselNextPrev = ({ next, previous, className }: Props) => {
           alt=""
         />
       </View>
+      <Spacer size={1} />
       <View as="button" aria-label="Next item" onClick={next}>
         <Image
           width="40"

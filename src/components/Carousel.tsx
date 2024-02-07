@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSpringCarousel } from "react-spring-carousel";
-import { View } from "vcc-ui";
+import { Spacer, View } from "vcc-ui";
 import { Car, Filter } from "../hooks/useCars";
 import CarouselDots from "./CarouselDots";
 import CarouselFilter from "./CarouselFilter";
@@ -45,6 +45,7 @@ export const Carousel = ({
 
   return (
     <View>
+      <Spacer size={3} />
       <CarouselFilter
         filters={filters}
         active={activeFilter}
