@@ -16,7 +16,6 @@ export const CarouselItem = ({ item }: Props) => {
     <View
       direction="column"
       justifyContent="center"
-      role="listitem"
       extend={{
         padding: "0 12px",
         boxSizing: "border-box",
