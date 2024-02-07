@@ -1,12 +1,20 @@
-import { HelloWorld } from "../src/components/HelloWorld";
+import { StrictMode } from "react";
+import { StyleProvider, ThemePicker } from "vcc-ui";
 import "../public/css/styles.css";
-import React from "react";
+import { Carousel } from "../src/components/Carousel";
+import { useCars } from "../src/hooks/useCars";
 
 function HomePage() {
+  const cars = useCars();
+
   return (
-    <React.StrictMode>
-      <HelloWorld />
-    </React.StrictMode>
+    <StrictMode>
+      <StyleProvider>
+        <ThemePicker variant="light">
+          <main>{cars && <Carousel items={cars} />}</main>
+        </ThemePicker>
+      </StyleProvider>
+    </StrictMode>
   );
 }
 

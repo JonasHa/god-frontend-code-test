@@ -1,4 +1,13 @@
 body {
-  background: steelblue;
-  color: white;
+    background: white;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
 }
