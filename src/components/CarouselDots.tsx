@@ -6,6 +6,8 @@ type Props = {
   className?: string;
 };
 const CarouselDots = ({ indexes, currentIndex, className }: Props) => {
+  if (!indexes) return null;
+
   return (
     <View
       direction="row"

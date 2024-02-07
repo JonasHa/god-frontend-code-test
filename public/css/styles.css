@@ -17,3 +17,8 @@ button {
     outline-color: black;
     outline-offset: 5px;
 }
+
+main {
+    max-width: 1232.4px;
+    margin: 0 auto;
+}

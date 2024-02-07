@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 import { Link, Spacer, Text, View, useTheme } from "vcc-ui";
 import { Car } from "../hooks/useCars";
-import styles from "./CarouselItem.module.css";
 
 type Props = {
   item: Car;
@@ -18,7 +17,13 @@ export const CarouselItem = ({ item }: Props) => {
       direction="column"
       justifyContent="center"
       role="listitem"
-      className={styles.carouselItem}
+      extend={{
+        padding: "0 12px",
+        boxSizing: "border-box",
+        width: "100%",
+        flex: "0 0 auto",
+        userSelect: "none",
+      }}
     >
       <Text
         subStyle="emphasis"
@@ -54,8 +59,13 @@ export const CarouselItem = ({ item }: Props) => {
       </View>
 
       <picture tab-index="-1">
-        <img
-          className={styles.carouselItemImage}
+        <View
+          as="img"
+          extend={{
+            pointerEvents: "none",
+            maxWidth: "100%",
+            margin: "16px 0",
+          }}
           src={item.imageUrl}
           alt={item.modelName}
         />

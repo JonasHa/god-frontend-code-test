@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { View } from "vcc-ui";
-import styles from "./CarouselNextPrev.module.css";
 
 type Props = {
   next: () => void;
@@ -20,8 +19,11 @@ const CarouselNextPrev = ({ next, previous, className }: Props) => {
         },
       }}
     >
-      <button
-        className={`${styles.togglerPrevious}`}
+      <View
+        as="button"
+        extend={{
+          transform: "scaleX(-1)",
+        }}
         aria-label="Previous item"
         onClick={previous}
       >
@@ -33,8 +35,8 @@ const CarouselNextPrev = ({ next, previous, className }: Props) => {
           unoptimized
           alt=""
         />
-      </button>
-      <button aria-label="Next item" onClick={next}>
+      </View>
+      <View as="button" aria-label="Next item" onClick={next}>
         <Image
           width="40"
           height="40"
@@ -43,7 +45,7 @@ const CarouselNextPrev = ({ next, previous, className }: Props) => {
           alt=""
           unoptimized
         />
-      </button>
+      </View>
     </View>
   );
 };
