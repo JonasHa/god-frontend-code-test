@@ -21,7 +21,7 @@ const CarouselNextPrev = ({ next, previous, className }: Props) => {
       }}
     >
       <button
-        className={`${styles.toggler} ${styles.togglerPrevious}`}
+        className={`${styles.togglerPrevious}`}
         aria-label="Previous item"
         onClick={previous}
       >
@@ -34,7 +34,7 @@ const CarouselNextPrev = ({ next, previous, className }: Props) => {
           alt=""
         />
       </button>
-      <button className={styles.toggler} aria-label="Next item" onClick={next}>
+      <button aria-label="Next item" onClick={next}>
         <Image
           width="40"
           height="40"

@@ -53,7 +53,7 @@ export const CarouselItem = ({ item }: Props) => {
         </Text>
       </View>
 
-      <picture>
+      <picture tab-index="-1">
         <img
           className={styles.carouselItemImage}
           src={item.imageUrl}

@@ -1,0 +1,19 @@
+.section {
+  max-width: 1232.4px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.carousel {
+  display: flex;
+  flex-flow: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
