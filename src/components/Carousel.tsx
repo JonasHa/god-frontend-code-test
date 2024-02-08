@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { useSpringCarousel } from "react-spring-carousel";
 import { Spacer, View } from "vcc-ui";
+import { useCarouselSlider } from "../hooks/useCarouselSlider";
 import { Car, Filter } from "../hooks/useCars";
 import CarouselDots from "./CarouselDots";
 import CarouselFilter from "./CarouselFilter";
@@ -20,28 +19,8 @@ export const Carousel = ({
   activeFilter,
   setActiveFilter,
 }: Props) => {
-  const [activeItem, setActiveItem] = useState<number>(0);
-
-  const carouselItems = items.map((item, index) => ({
-    id: index.toString(),
-    renderItem: <CarouselItem item={item} key={item.id} />,
-  }));
-  const indexes = items.map((_, index) => index)!;
-
-  const {
-    carouselFragment,
-    useListenToCustomEvent,
-    slideToPrevItem,
-    slideToNextItem,
-  } = useSpringCarousel({
-    items: carouselItems,
-  });
-
-  useListenToCustomEvent((event) => {
-    if (event.eventName === "onSlideStartChange") {
-      setActiveItem(Number(event.nextItem.id));
-    }
-  });
+  const { ref, next, prev, activeItemIndex } = useCarouselSlider();
+  const indexes = items.map((_, index) => index);
 
   return (
     <View>
@@ -52,29 +31,24 @@ export const Carousel = ({
         setActive={setActiveFilter}
       />
       <View
+        as="ul"
+        role="list"
         extend={{
-          overflow: "hidden",
+          display: "flex",
+          flexDirection: "row",
+          padding: 0,
+          margin: "0 0 32px 0",
+          overflowX: "scroll",
+          scrollbarWidth: "none",
         }}
+        ref={ref}
       >
-        <View
-          extend={{
-            display: "flex",
-            flexDirection: "column",
-            marginBottom: "32px",
-            width: "75%",
-            onlyM: {
-              width: "40%",
-            },
-            fromL: {
-              width: "25%",
-            },
-          }}
-        >
-          {carouselFragment}
-        </View>
+        {items.map((item) => (
+          <CarouselItem item={item} key={item.id} />
+        ))}
       </View>
-      <CarouselNextPrev next={slideToNextItem} previous={slideToPrevItem} />
-      <CarouselDots indexes={indexes} currentIndex={activeItem} />
+      <CarouselNextPrev next={next} previous={prev} />
+      <CarouselDots indexes={indexes} currentIndex={activeItemIndex} />
     </View>
   );
 };

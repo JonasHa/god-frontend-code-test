@@ -4,12 +4,10 @@ import { Spacer, View } from "vcc-ui";
 type Props = {
   next: () => void;
   previous: () => void;
-  className?: string;
 };
-const CarouselNextPrev = ({ next, previous, className }: Props) => {
+const CarouselNextPrev = ({ next, previous }: Props) => {
   return (
     <View
-      className={className}
       direction="row"
       justifyContent="end"
       extend={{

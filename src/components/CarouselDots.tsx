@@ -3,10 +3,12 @@ import { View } from "vcc-ui";
 type Props = {
   currentIndex: number;
   indexes: number[];
-  className?: string;
 };
-const CarouselDots = ({ indexes, currentIndex, className }: Props) => {
+const CarouselDots = ({ indexes, currentIndex }: Props) => {
   if (!indexes) return null;
+
+  const lastIndex = indexes.length - 1;
+  const onlyTwo = indexes.length === 2;
 
   return (
     <View
@@ -30,6 +32,9 @@ const CarouselDots = ({ indexes, currentIndex, className }: Props) => {
               width: 8,
               margin: "0px 4px",
               borderRadius: "100%",
+              onlyM: {
+                display: lastIndex === index || onlyTwo ? "none" : "",
+              },
             }}
           ></View>
         </View>

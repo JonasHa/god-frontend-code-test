@@ -14,12 +14,20 @@ export const CarouselItem = ({ item }: Props) => {
 
   return (
     <View
+      as="li"
+      role="listitem"
       direction="column"
       justifyContent="center"
       extend={{
+        width: "75%",
+        onlyM: {
+          width: "40%",
+        },
+        fromL: {
+          width: "25%",
+        },
         padding: "0 12px",
         boxSizing: "border-box",
-        width: "100%",
         flex: "0 0 auto",
         userSelect: "none",
       }}
